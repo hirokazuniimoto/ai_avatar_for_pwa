@@ -40,8 +40,7 @@ window.addEventListener("message", async (event) => {
           break;
         }
         try {
-          // unitySpeak(sentences[i], event.data.voice || "en-US-AshleyNeural");
-          unitySpeak(sentences[i]);
+          unitySpeak(sentences[i], event.data.voice || "ja-JP-NanamiNeural");
         } catch (e) {
           console.log("ERRR", e);
         }
