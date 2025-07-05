@@ -27,17 +27,28 @@ function unityShowBanner(msg, type) {
 }
 
 var buildUrl = "Build";
-var loaderUrl = buildUrl + "/Vtuber-uLipSync-SimpleA.loader.js";
+var loaderUrl = buildUrl + "/Build.loader.js";
 var config = {
-  dataUrl: buildUrl + "/Vtuber-uLipSync-SimpleA.data.unityweb",
-  frameworkUrl: buildUrl + "/Vtuber-uLipSync-SimpleA.framework.js.unityweb",
-  codeUrl: buildUrl + "/Vtuber-uLipSync-SimpleA.wasm.unityweb",
+  dataUrl: buildUrl + "/Build.data",
+  frameworkUrl: buildUrl + "/Build.framework.js",
+  codeUrl: buildUrl + "/Build.wasm",
   streamingAssetsUrl: "StreamingAssets",
   companyName: "DefaultCompany",
   productName: "Vtuber-uLipSync-SimpleA",
   productVersion: "0.1",
   showBanner: unityShowBanner,
 };
+
+// var config = {
+//   dataUrl: buildUrl + "/Vtuber-uLipSync-SimpleA.data.unityweb",
+//   frameworkUrl: buildUrl + "/Vtuber-uLipSync-SimpleA.framework.js.unityweb",
+//   codeUrl: buildUrl + "/Vtuber-uLipSync-SimpleA.wasm.unityweb",
+//   streamingAssetsUrl: "StreamingAssets",
+//   companyName: "DefaultCompany",
+//   productName: "Vtuber-uLipSync-SimpleA",
+//   productVersion: "0.1",
+//   showBanner: unityShowBanner,
+// };
 
 // if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
 //   canvas.style.width = "300px";

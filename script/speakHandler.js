@@ -4,9 +4,15 @@ var unitySpeaking = false;
 var isSpeaking = false;
 var isStoping = false;
 
-function unitySpeak(message, voice) {
-  unityInstance.SendMessage("ChatAgent", "ReceiveDataFromBrowser", message);
-  unityInstance.SendMessage("Azure", "setVoice", voice);
+function unitySpeak(message, voiceName) {
+  const json = JSON.stringify({
+    text: message,
+    voice: {
+      name: voiceName || "ja-JP-Chirp3-HD-Leda", // 任意のデフォルト名
+      languageCode: "ja-JP"
+    }
+  });
+  unityInstance.SendMessage("ChatAgent", "ReceiveDataFromBrowser", json);
 }
 
 function unityAnimate(animation) {
@@ -40,8 +46,7 @@ window.addEventListener("message", async (event) => {
           break;
         }
         try {
-          unitySpeak("", event.data.voice || "ja-JP-NanamiNeural");
-          unitySpeak(sentences[i], event.data.voice || "ja-JP-NanamiNeural");
+          unitySpeak(sentences[i], event.data.voice || "ja-JP-Chirp3-HD-Leda");
         } catch (e) {
           console.log("ERRR", e);
         }
