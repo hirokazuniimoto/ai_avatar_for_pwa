@@ -89,3 +89,17 @@ document.body.addEventListener("click", (event) => {
     "*"
   );
 });
+
+// unity側からのスピーキング実行停止で必要
+window.onUnityMessage = function (msg) {
+  try {
+    const data = JSON.parse(msg);
+    console.log("📨 Unityからメッセージ受信:", data);
+
+    if (data.type === "VTuber_Message_Delivery_Complete") {
+      isSpeaking = false;
+    }
+  } catch (e) {
+    console.error("❌ Unityメッセージ解析エラー", e);
+  }
+};
